@@ -13,4 +13,15 @@ declare global {
     name: string;
     img: string | StaticImageData;
   }
+
+  interface IOpportunity {
+    id: string;
+    title: string;
+    description: string;
+    img: string | StaticImageData;
+    issuer: string;
+    credentialsRequired: ICredential[];
+    deadlineToApply: Date;
+    location: string;
+  }
 }

@@ -16,7 +16,7 @@ function Navbar() {
     >
       <TabIcon redirectTo='/' icon={<HomeIcon />} label='Home' />
       <TabIcon
-        redirectTo='/credentials'
+        redirectTo='/credential-app/credentials'
         icon={<ChecklistIcon />}
         label='Credentials'
       />
