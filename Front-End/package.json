@@ -27,6 +27,10 @@
     "clsx": "^2.0.0",
     "lucide-react": "^0.376.0",
     "mitt": "^3.0.1",
+    "@web3auth/base": "^8.4.0",
+    "@web3auth/modal": "^8.4.0",
+    "@web3auth/openlogin-adapter": "^8.4.0",
+    "@web3auth/xrpl-provider": "^8.4.0",
     "nanostores": "^0.9.3",
     "next": "^14.0.4",
     "query-string": "^9.0.0",
@@ -36,7 +40,8 @@
     "tailwind-merge": "^2.1.0",
     "usehooks-ts": "^3.1.0",
     "valibot": "^0.25.0",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "xrpl": "^3.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.3.0",

@@ -5,7 +5,7 @@ import {
   createTheme,
   CssBaseline,
   ThemeProvider,
-  useMediaQuery
+  useMediaQuery,
 } from '@mui/material';
 import { useMemo } from 'react';
 
@@ -13,6 +13,7 @@ import '@/styles/globals.css';
 // !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
 import '@/styles/colors.css';
 
+import { Web3AuthProvider } from '@/components/Provider/Web3AuthProvider';
 
 // !STARTERCONF Change these default meta
 // !STARTERCONF Look at @/constant/config to change them
@@ -111,11 +112,9 @@ export default function RootLayout({
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-            <Box
-              
-            >
-              {children}
-            </Box>
+          <Web3AuthProvider>
+            <Box>{children}</Box>
+          </Web3AuthProvider>
         </ThemeProvider>
       </body>
     </html>
