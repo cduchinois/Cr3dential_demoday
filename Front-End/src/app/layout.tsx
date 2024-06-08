@@ -76,7 +76,7 @@ export default function RootLayout({
           },
           background: {
             default: 'rgb(2 18 54)',
-            paper: '#f5f5f5',
+            paper: '#212f4e',
           },
         },
         components: {
