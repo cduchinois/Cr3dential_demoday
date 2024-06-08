@@ -13,6 +13,7 @@ import '@/styles/globals.css';
 // !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
 import '@/styles/colors.css';
 
+import MainContainer from '@/components/MainLayout/MainContainer';
 import { Web3AuthProvider } from '@/components/Provider/Web3AuthProvider';
 
 // !STARTERCONF Change these default meta
@@ -62,8 +63,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const prefersDarkMode =
-    useMediaQuery('(prefers-color-scheme: dark)') && false;
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)') && true;
   const isMobile = useMediaQuery('(max-width:600px)');
 
   const theme = useMemo(
@@ -75,7 +75,7 @@ export default function RootLayout({
             main: '#01050e',
           },
           background: {
-            default: '#ffffff',
+            default: 'rgb(2 18 54)',
             paper: '#f5f5f5',
           },
         },
@@ -113,7 +113,20 @@ export default function RootLayout({
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Web3AuthProvider>
-            <Box>{children}</Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100%',
+                backgroundColor: '#00c1d2',
+                backgroundImage:
+                  'linear-gradient(57deg, #00919e 2%, #7e0180 100%)',
+              }}
+            >
+              <MainContainer isMobile={isMobile}>{children}</MainContainer>
+            </Box>
           </Web3AuthProvider>
         </ThemeProvider>
       </body>

@@ -10,8 +10,6 @@
  */
 import { Stack } from '@mui/material';
 
-import LoginButton from '@/components/Web3Auth/LoginButton';
-
 // !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
 // Before you begin editing, follow all comments with `STARTERCONF`,
 // to customize the default configuration.
@@ -19,8 +17,8 @@ import LoginButton from '@/components/Web3Auth/LoginButton';
 export default function HomePage() {
   return (
     <Stack flexGrow={1} alignItems='center'>
-      <h1>OUI</h1>
-      <LoginButton />
+      {/* <h1>OUI</h1>
+      <LoginButton /> */}
     </Stack>
   );
 }

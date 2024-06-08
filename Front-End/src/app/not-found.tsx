@@ -1,6 +1,6 @@
+import { Button, Stack, Typography } from '@mui/material';
 import { Metadata } from 'next';
-import * as React from 'react';
-import { RiAlarmWarningFill } from 'react-icons/ri';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Not Found',
@@ -8,17 +8,12 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main>
-      <section className='bg-white'>
-        <div className='layout flex min-h-screen flex-col items-center justify-center text-center text-black'>
-          <RiAlarmWarningFill
-            size={60}
-            className='drop-shadow-glow animate-flicker text-red-500'
-          />
-          <h1 className='mt-8 text-4xl md:text-6xl'>Page Not Found</h1>
-          <a href='/'>Back to home</a>
-        </div>
-      </section>
-    </main>
+    <Stack justifyContent='center' alignItems='center' flexGrow={1} gap={2}>
+      <Typography variant='h1'>404</Typography>
+      <Typography variant='h2'>Not Found</Typography>
+      <Link href='/'>
+        <Button variant='contained'>Back Home</Button>
+      </Link>
+    </Stack>
   );
 }
