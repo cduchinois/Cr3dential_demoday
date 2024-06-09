@@ -1,6 +1,7 @@
 import ChecklistIcon from '@mui/icons-material/Checklist';
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
+import WorkIcon from '@mui/icons-material/Work';
 import { Stack } from '@mui/material';
 
 import TabIcon from './TabIcon';
@@ -21,6 +22,7 @@ function Navbar() {
         label='Credentials'
       />
       <TabIcon redirectTo='/profile' icon={<PersonIcon />} label='Profile' />
+      <TabIcon redirectTo='/jobboard' icon={<WorkIcon />} label='Jobs' />
     </Stack>
   );
 }

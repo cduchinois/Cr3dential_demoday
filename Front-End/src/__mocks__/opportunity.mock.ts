@@ -25,19 +25,19 @@ export const defaultOpportunities: IOpportunity[] = [
         img: '/images/certificate1.png',
       },
     ],
-    deadlineToApply: new Date('2022-12-31'),
+    deadlineToApply: new Date('2025-12-31'),
     location: 'Remote',
   },
   {
     id: '2',
     title: 'Hacker at XRPL APEX',
     description: `You need to hold the following credentials to be eligible to apply for this position:
-    - XRPL Dev Training
-    - EasyA XRPL 101
-    - EasyA XRPL EVM Sidechain Training
+    - EasyA Blockchain 101
+    - EasyA Smart Contract 101
+    - EasyA Brief history on XRPL
     
     Additional Preferred Credentials
-    - EasyA Smart Contract training
+    - XRPL Dev Training
     `,
     img: easyALogo,
     issuer: 'EasyA APEX Hackathon',

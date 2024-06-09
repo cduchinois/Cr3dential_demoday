@@ -6,7 +6,7 @@ export const defaultCredentials: ICredential[] = [
   {
     id: '1',
     issuer: 'XRPLedger',
-    name: 'ZkProof Expert',
+    name: 'Dev Training',
     img: xrpLogo,
   },
   {

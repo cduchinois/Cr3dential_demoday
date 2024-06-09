@@ -12,7 +12,11 @@ function TabIcon({
 }) {
   return (
     <Link href={redirectTo}>
-      <IconButton>
+      <IconButton
+        sx={{
+          borderRadius: '10px',
+        }}
+      >
         <Stack direction='column' alignItems='center'>
           {icon}
           <Typography variant='caption'>{label}</Typography>

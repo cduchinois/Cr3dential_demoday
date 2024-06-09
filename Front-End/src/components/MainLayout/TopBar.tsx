@@ -1,9 +1,17 @@
-import { Stack, Typography } from '@mui/material';
+import { Stack } from '@mui/material';
+import Image from 'next/image';
+
+import credentialLogo from '@/assets/logo_cr3dential.png';
 
 function TopBar() {
   return (
-    <Stack p={2} px={4}>
-      <Typography variant='h5'>Credentials</Typography>
+    <Stack p={2} px={4} justifyContent='center' direction='row'>
+      <Image
+        src={credentialLogo}
+        alt='Credential Logo'
+        width={200}
+        height={50}
+      />
     </Stack>
   );
 }

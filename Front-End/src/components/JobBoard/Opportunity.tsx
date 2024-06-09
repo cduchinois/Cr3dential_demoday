@@ -1,9 +1,12 @@
-import { Paper, Stack, Typography } from '@mui/material';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import { Chip, Paper, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 
 import ApplyButton from './ApplyButton';
 
 function Opportunity({ opportunity }: { opportunity: IOpportunity }) {
+  const isOngoing = new Date() < opportunity.deadlineToApply;
+
   return (
     <Paper
       sx={{
@@ -22,7 +25,15 @@ function Opportunity({ opportunity }: { opportunity: IOpportunity }) {
           width={75}
           height={75}
         />
-        <Typography variant='h6'>{opportunity.issuer}</Typography>
+        <Typography variant='h6' flexGrow={1}>
+          {opportunity.issuer}
+        </Typography>
+        <Chip
+          icon={
+            <FiberManualRecordIcon color={isOngoing ? 'success' : 'disabled'} />
+          }
+          label={isOngoing ? 'Ongoing' : 'Passed'}
+        />
       </Stack>
       <Typography variant='h5'>{opportunity.title}</Typography>
       <Typography
