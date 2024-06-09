@@ -1,6 +1,8 @@
 # Cr3dntial
 
-Cr3dntial is a DID (Decentralized Identifier) based dApp that allows users to store their credentials on the XRPL testnet mainchain. We enabled Zero-Knowledge Proof and verification as well as a Cr3dential experience during the EasyA x Ripple x Apex Hackathon under 36 hours!
+Cr3dntial is a DID (Decentralized Identifier) based dApp that allows users to store their credentials on the XRPL testnet mainchain. 
+We've built the Dapp during a previous hackathon.
+During the EasyA x Ripple x Apex Hackathon we've been enabled Zero-Knowledge Proof and verification as well as a Cr3dential experience under 36 hours!
 
 ## Demo
 
