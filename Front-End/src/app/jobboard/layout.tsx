@@ -8,7 +8,7 @@ import {
   ThemeProvider,
   useMediaQuery,
 } from '@mui/material';
-import { useMemo } from 'react';
+import { Suspense, useMemo } from 'react';
 
 import JobNavBar from '@/components/JobBoard/JobNavBar';
 
@@ -61,7 +61,9 @@ function JobBoardLayout({ children }: { children: React.ReactNode }) {
       <CssBaseline />
       <Stack p={2} gap={2}>
         <JobNavBar />
-        <Container maxWidth='lg'>{children}</Container>
+        <Container maxWidth='lg'>
+          <Suspense>{children}</Suspense>
+        </Container>
       </Stack>
     </ThemeProvider>
   );

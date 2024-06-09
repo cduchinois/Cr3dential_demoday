@@ -6,7 +6,7 @@ import {
   ThemeProvider,
   useMediaQuery,
 } from '@mui/material';
-import { useMemo } from 'react';
+import { Suspense, useMemo } from 'react';
 
 import MainContainer from '@/components/MainLayout/MainContainer';
 
@@ -70,7 +70,9 @@ function CredentialAppLayout({ children }: { children: React.ReactNode }) {
           backgroundImage: 'linear-gradient(57deg, #00919e 2%, #7e0180 100%)',
         }}
       >
-        <MainContainer isMobile={isMobile}>{children}</MainContainer>
+        <MainContainer isMobile={isMobile}>
+          <Suspense>{children}</Suspense>
+        </MainContainer>
       </Box>
     </ThemeProvider>
   );
