@@ -13,13 +13,13 @@ import MainContainer from '@/components/MainLayout/MainContainer';
 function CredentialAppLayout({ children }: { children: React.ReactNode }) {
   const isMobile = useMediaQuery('(max-width:600px)');
 
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)') && true;
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   const theme = useMemo(
     () =>
       createTheme({
         palette: {
-          mode: prefersDarkMode ? 'dark' : 'light',
+          mode: 'dark',
           primary: {
             main: '#01050e',
           },

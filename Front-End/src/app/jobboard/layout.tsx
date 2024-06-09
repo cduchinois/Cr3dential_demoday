@@ -13,13 +13,13 @@ import { Suspense, useMemo } from 'react';
 import JobNavBar from '@/components/JobBoard/JobNavBar';
 
 function JobBoardLayout({ children }: { children: React.ReactNode }) {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)') && true;
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   const jobboardTheme = useMemo(
     () =>
       createTheme({
         palette: {
-          mode: prefersDarkMode ? 'dark' : 'light',
+          mode: 'dark',
           primary: {
             main: '#01050e',
           },
