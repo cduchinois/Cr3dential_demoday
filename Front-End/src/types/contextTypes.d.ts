@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { IProvider } from '@web3auth/base';
 import { Web3Auth } from '@web3auth/modal';
 
@@ -16,5 +17,7 @@ declare global {
     loadingUserInfo: boolean;
     setLoadingUserInfo: (loadingUserInfo: boolean) => void;
     login: () => void;
+    createDid: Function;
+    createIssuerDid: Function;
   }
 }

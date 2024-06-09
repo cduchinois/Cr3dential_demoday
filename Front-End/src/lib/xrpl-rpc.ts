@@ -92,7 +92,7 @@ export default class XrplRPC {
         const tx: DIDSet = {
           TransactionType: 'DIDSet',
           Account: accounts[0] as string,
-          URI: '697066733A2F2F62616679626569676479727A74357366703775646D37687537367568377932366E6634646675796C71616266336F636C67747179353566627A6469',
+          URI: convertStringToHex(didIPFSHash),
         };
         console.log('🚀 ~ XrplRPC ~ signAndSetDid= ~ tx:', tx);
         const txSign = await this.provider.request({

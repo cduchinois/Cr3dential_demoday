@@ -1,7 +1,9 @@
 'use client';
 
-import { Button, Stack, TextField, Typography } from '@mui/material';
+import { Button, Stack, Typography } from '@mui/material';
 import { useState } from 'react';
+
+import { useWeb3Auth } from '@/hooks/useWeb3Auth';
 
 import { uploadToIPFS } from '@/backend/DID-back';
 
@@ -10,6 +12,8 @@ function AdminPage() {
   const [studentAddress, setStudentAddress] = useState('');
   const [credentialName, setCredentialName] = useState('');
   const [credentialIssuer, setCredentialIssuer] = useState('');
+
+  const webAuth = useWeb3Auth();
 
   const upload = async () => {
     const hash = await uploadToIPFS(
@@ -37,28 +41,46 @@ function AdminPage() {
         upload IPFS
       </Button>
       <Typography>IPFSHash : {ipfsHash}</Typography>
-      <TextField
-        label='Student Address'
-        onChange={(e) => setStudentAddress(e.target.value)}
-        variant='outlined'
-      />
-      <Button variant='contained' color='primary' onClick={async () => {}}>
+      <Stack direction='row' gap={2}>
+        <Typography>Student Address</Typography>
+        <input
+          type='text'
+          onChange={(event) => setStudentAddress(event.target.value)}
+        />
+      </Stack>
+      <Button
+        variant='contained'
+        color='primary'
+        onClick={async () => {
+          webAuth.createDid(studentAddress, '0x1234567890');
+        }}
+      >
         Create DID account for Student
       </Button>
 
-      <TextField
-        label='Credential Name'
-        onChange={(e) => setCredentialName(e.target.value)}
-        variant='outlined'
-      />
+      <Stack direction='row' gap={2}>
+        <Typography>Credential Name</Typography>
+        <input
+          type='text'
+          onChange={(event) => setCredentialName(event.target.value)}
+        />
+      </Stack>
 
-      <TextField
-        label='Credential Issuer'
-        onChange={(e) => setCredentialIssuer(e.target.value)}
-        variant='outlined'
-      />
+      <Stack direction='row' gap={2}>
+        <Typography>Credential Issuer</Typography>
+        <input
+          type='text'
+          onChange={(event) => setCredentialIssuer(event.target.value)}
+        />
+      </Stack>
 
-      <Button variant='contained' color='primary' onClick={async () => {}}>
+      <Button
+        variant='contained'
+        color='primary'
+        onClick={async () => {
+          webAuth.createIssuerDid(credentialIssuer, '0x1234567890');
+        }}
+      >
         Create DID document for Student
       </Button>
     </Stack>

@@ -51,3 +51,60 @@ export async function createStudentDID(
 
   return prefixPinata + didIPFSLink;
 }
+
+const RSApublicKey = `-----BEGIN PUBLIC KEY-----
+MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgHkR5GD34WaZ1xVLaFnmoKXF0o//
+yNr80uYJVH7j2OvLVZk+obK6rH1JfBZVqbSBw0WEZ25Lyrgi0K1YYTVVfBpOkpf/
+V5rw5J7xYAzK6vPW9skkA75gBUsF7L/7hoH9JepqFa2qIv/7Rf7BgpYWsCqXuSq/
+8TCAE96cLc6CgQUHAgMBAAE=
+-----END PUBLIC KEY-----`;
+
+export async function createIssuerDID(
+  issuerWalletAdress: string,
+  publicKeyForAssertion: string
+) {
+  const did = `did:xrpl:1:${issuerWalletAdress}`;
+
+  const profile = {
+    type: 'University',
+    name: 'EasyA',
+    sector: 'Education',
+    website: 'https://easya.com/',
+  };
+
+  const profileIPFSLink = await uploadToIPFS(JSON.stringify(profile));
+
+  const didDocument = {
+    '@context': 'https://www.w3.org/ns/did/v1',
+    id: did,
+    controller: did,
+    verificationMethod: [
+      {
+        id: `${did}#keys-1`,
+        type: 'EcdsaSecp256k1RecoveryMethod2020',
+        controller: did,
+        publicKeyHex: publicKeyForAssertion,
+      },
+      {
+        id: `${did}#keys-2`,
+        type: 'RsaVerificationKey2018',
+        controller: did,
+        publicKeyPem: RSApublicKey,
+      },
+    ],
+    service: [
+      {
+        id: `${did}#profile`,
+        type: 'Public Profile',
+        serviceEndpoint: prefixPinata + profileIPFSLink,
+      },
+    ],
+  };
+
+  const didIPFSLink = await uploadToIPFS(JSON.stringify(didDocument));
+  const buffer = bs58.decode(didIPFSLink);
+  const fullHexString = buffer.toString();
+  const hexCID = fullHexString.substring(4);
+
+  return prefixPinata + didIPFSLink;
+}

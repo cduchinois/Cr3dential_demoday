@@ -6,6 +6,8 @@ import { createContext, useEffect, useState } from 'react';
 import { instantiateWeb3Auth, openloginAdapter } from '@/lib/web3Auth';
 import XrplRPC from '@/lib/xrpl-rpc';
 
+import { createIssuerDID, createStudentDID } from '@/backend/DID-back';
+
 export const AuthContext = createContext<AuthContextType>({
   web3Auth: null,
   setWeb3Auth: () => {},
@@ -18,6 +20,8 @@ export const AuthContext = createContext<AuthContextType>({
   loadingUserInfo: false,
   setLoadingUserInfo: () => {},
   login: () => {},
+  createDid: () => {},
+  createIssuerDid: () => {},
 });
 
 export const Web3AuthProvider = ({
@@ -83,6 +87,33 @@ export const Web3AuthProvider = ({
     }
   };
 
+  const createDid = async (issuerWallet: string, publicKeyHex: string) => {
+    if (!provider || !xrplRPC) {
+      console.error('Provider or xrplRPC not initialized');
+      return;
+    }
+
+    const testIPFS = await createStudentDID(issuerWallet, publicKeyHex);
+    const result = await xrplRPC.signAndSetDid(testIPFS);
+
+    return result;
+  };
+
+  const createIssuerDid = async (
+    issuerWallet: string,
+    publicKeyHex: string
+  ) => {
+    if (!provider || !xrplRPC) {
+      console.error('Provider or xrplRPC not initialized');
+      return;
+    }
+
+    const testIPFS = await createIssuerDID(issuerWallet, publicKeyHex);
+    const result = await xrplRPC.signAndSetDid(testIPFS);
+
+    return result;
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -97,6 +128,8 @@ export const Web3AuthProvider = ({
         loadingUserInfo,
         setLoadingUserInfo,
         login,
+        createDid,
+        createIssuerDid,
       }}
     >
       {children}
