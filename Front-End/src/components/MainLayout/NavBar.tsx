@@ -21,7 +21,11 @@ function Navbar() {
         icon={<ChecklistIcon />}
         label='Credentials'
       />
-      <TabIcon redirectTo='/profile' icon={<PersonIcon />} label='Profile' />
+      <TabIcon
+        redirectTo='/credential-app/profile'
+        icon={<PersonIcon />}
+        label='Profile'
+      />
       <TabIcon redirectTo='/jobboard' icon={<WorkIcon />} label='Jobs' />
     </Stack>
   );
