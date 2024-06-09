@@ -6,7 +6,7 @@ import { shrinkString } from '@/lib/utils';
 function LoginButton() {
   const web3Context = useWeb3Auth();
 
-  if (!web3Context.web3Auth) {
+  if (!web3Context.isLogged) {
     return (
       <LoadingButton
         loading={!web3Context.isInitialized}

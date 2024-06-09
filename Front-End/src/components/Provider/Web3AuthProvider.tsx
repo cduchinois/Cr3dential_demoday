@@ -44,12 +44,11 @@ export const Web3AuthProvider = ({
           await newWeb3Auth.initModal();
           setWeb3Auth(newWeb3Auth);
           console.log('🚀 ~ init ~ newWeb3Auth:', newWeb3Auth);
+          setIsInitialized(true);
 
           if (newWeb3Auth.connected) {
             setProvider(newWeb3Auth.provider);
             setIsLogged(true);
-          } else {
-            setIsInitialized(true);
           }
         }
       };

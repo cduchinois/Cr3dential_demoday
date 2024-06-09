@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import ApplySuccessfull from './ApplySuccessfull';
 import VerifyableCredentialCard from './VerifyableCredentialCard';
 
+const animationTimeout = 600;
+
 function VerifyingModal({
   open,
   onClose,
@@ -21,7 +23,7 @@ function VerifyingModal({
   useEffect(() => {
     setTimeout(() => {
       setLoadingVerifications(false);
-    }, credentials.length * 500);
+    }, credentials.length * animationTimeout + animationTimeout);
   }, [credentials]);
 
   const onApply = () => {
@@ -43,21 +45,23 @@ function VerifyingModal({
           p: 4,
           display: 'flex',
           flexDirection: 'column',
+          justifyContent: 'space-around',
           gap: 2,
           width: '500px',
+          height: '580px',
         }}
       >
-        {hasApplied && <ApplySuccessfull />}
+        {hasApplied && <ApplySuccessfull onClose={onClose} />}
         {!hasApplied && (
           <>
             <Typography variant='h4'>Cr3dential is verifying ...</Typography>
-            <Stack gap={1}>
+            <Stack gap={2}>
               {credentials.map((credential, index) => (
                 <VerifyableCredentialCard
                   key={index}
                   credential={credential}
-                  timeout={500}
-                  timeoutDelay={index * 500}
+                  timeout={animationTimeout}
+                  timeoutDelay={index * animationTimeout}
                 />
               ))}
             </Stack>

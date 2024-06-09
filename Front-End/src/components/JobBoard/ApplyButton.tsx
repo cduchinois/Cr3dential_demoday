@@ -1,12 +1,15 @@
 'use client';
 
 import { LoadingButton } from '@mui/lab';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 
 function ApplyButton() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const verifiedCredentials = searchParams.getAll('verified_credentials');
 
   const onClick = () => {
     setLoading(true);
@@ -23,7 +26,7 @@ function ApplyButton() {
       loading={loading}
       sx={{ alignSelf: 'center' }}
     >
-      Connect to apply
+      {verifiedCredentials.length > 0 ? 'Apply' : 'Connect to apply'}
     </LoadingButton>
   );
 }

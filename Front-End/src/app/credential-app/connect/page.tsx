@@ -41,9 +41,18 @@ function ConnectWithCredentials() {
       flexGrow='1'
       mb={4}
     >
-      <Typography variant='h5' textAlign='center'>
-        Connect to Ripple.com ?
-      </Typography>
+      <Typography variant='h5'>Connect to Ripple.com ?</Typography>
+      <Stack>
+        <Typography variant='body1' color='text.secondary'>
+          - XRPL Dev Training
+        </Typography>
+        <Typography variant='body1' color='text.secondary'>
+          - EasyA XRPL EVM Sidechain Training
+        </Typography>
+        <Typography variant='body1' color='text.secondary'>
+          - EasyA XRPL 101
+        </Typography>
+      </Stack>
       <Stack direction='row' justifyContent='center' gap={2} width='100%'>
         <LoadingButton
           loading={loadingConnection}
