@@ -32,7 +32,7 @@ During the EasyA x Ripple x Apex Hackathon we've been enabled Zero-Knowledge Pro
 ## Contributors
 - **cduchinois**: [Twitter](https://x.com/cduchinois)
 - **ahippoly**: [Twitter](https://x.com/Azioth_)
-- **Anfal Bourouina**: [Twitter](https://x.com/anfel_fullah)
+- **anii76**: [Twitter](https://x.com/anfel_fullah)
 
 ## Acknowledgements
 Special thanks to EasyA, Ripple, and Apex Hackathon for the opportunity to develop this project.
