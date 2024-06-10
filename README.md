@@ -1,13 +1,38 @@
-# Sample Hardhat Project
+# Cr3dntial
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+Cr3dntial is a DID (Decentralized Identifier) based dApp that allows users to store their credentials on the XRPL testnet mainchain. 
+We've built the Dapp during a previous hackathon.
+During the EasyA x Ripple x Apex Hackathon we've been enabled Zero-Knowledge Proof and verification as well as a Cr3dential experience under 36 hours!
 
-Try running some of the following tasks:
+## Demo
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
-```
+[Cr3dntial Demo](https://apex-hackathon.vercel.app/)
+
+## Pitch Deck
+
+[Cr3dntial Pitch Deck](https://www.canva.com/design/DAGHnENTuEQ/4r1paJK14WqhpXwgjDTr2A/edit?utm_content=DAGHnENTuEQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+## Tech & Tools Used
+
+### Frontend
+- Web3Auth XRPL
+- Next.js
+- Vercel
+
+### Backend
+- XRPL.js
+- XRPL EVM Sidechain
+- Solidity
+- TypeScript
+
+### Zero-Knowledge Proof
+- Circom
+- snarkjs
+
+## Contributors
+- **cduchinois**: [Twitter](https://x.com/cduchinois)
+- **ahippoly**: [Twitter](https://x.com/Azioth_)
+- **Anfal Bourouina**: [Twitter](https://x.com/anfel_fullah)
+
+## Acknowledgements
+Special thanks to EasyA, Ripple, and Apex Hackathon for the opportunity to develop this project.
