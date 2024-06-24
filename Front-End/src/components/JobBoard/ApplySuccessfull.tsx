@@ -15,7 +15,7 @@ function ApplySuccessfull({ onClose }: { onClose: () => void }) {
         }}
       />
       <Stack gap={2} flexGrow={1}>
-        <Typography variant='h4'>Congragultions !</Typography>
+        <Typography variant='h4'>Congratulations !</Typography>
         <Typography variant='h5'>
           You successfully applied to this job
         </Typography>
