@@ -63,11 +63,10 @@ function CredentialAppLayout({ children }: { children: React.ReactNode }) {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100%',
+          minHeight: '100vh',
           backgroundColor: '#00c1d2',
           backgroundImage: 'linear-gradient(57deg, #00919e 2%, #7e0180 100%)',
+          backgroundAttachment: 'fixed',
         }}
       >
         <MainContainer isMobile={isMobile}>
