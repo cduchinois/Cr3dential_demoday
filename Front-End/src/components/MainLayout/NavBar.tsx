@@ -2,6 +2,7 @@ import ChecklistIcon from '@mui/icons-material/Checklist';
 import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
 import PersonIcon from '@mui/icons-material/Person';
 import { Stack, IconButton, styled, Paper } from '@mui/material';
+import { useRouter } from 'next/navigation';
 
 import TabIcon from './TabIcon';
 
@@ -39,6 +40,8 @@ const ScanButton = styled(IconButton)(({ theme }) => ({
 }));
 
 function Navbar() {
+  const router = useRouter();
+
   return (
     <NavBarContainer elevation={3}>
       <Stack
@@ -58,7 +61,7 @@ function Navbar() {
           icon={<PersonIcon sx={{ fontSize: 28 }} />}
           label='Profile'
         />
-        <ScanButton>
+        <ScanButton onClick={() => router.push('/credential-app/scan')}>
           <QrCodeScannerIcon sx={{ color: 'white', fontSize: '28px' }} />
         </ScanButton>
         <TabIcon
