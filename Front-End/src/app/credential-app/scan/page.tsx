@@ -39,11 +39,27 @@ function QRScannerPage() {
 
     const scanner = new QrScanner(
       videoRef.current,
-      (result) => {
-        // Handle successful scan
-        console.log('QR code detected:', result.data);
-        // TODO: Process the QR code data
-        // router.push(`/credential-app/credentials?data=${encodeURIComponent(result.data)}`);
+      async (result) => {
+        try {
+          // Assuming QR code contains a credential offer ID or data
+          const scannedData = result.data;
+
+          // Try to parse scanned data as URL
+          let type = "";
+          try {
+            const url = new URL(scannedData);
+            const params = new URLSearchParams(url.search);
+            if (params.has('type')) {
+              type = params.get('type') || "";
+              // Navigate to the credential offer page with the scanned ID
+              router.push(`/credential-app/credential-offer?type=${encodeURIComponent(type)}`);
+            }
+          } catch {
+            // Not a valid URL, use raw scanned data
+          }
+        } catch (err) {
+          setError('Invalid QR code format');
+        }
       },
       {
         highlightScanRegion: true,
